@@ -1,15 +1,11 @@
-const ContextStrategy = require("./database/strategies/base/contextStrategy");
-const MongoDB = require("./database/strategies/mongodb");
-const Postgres = require("./database/strategies/postgreSQL");
+const app = require("express")();
+const tasksRoute = require("./routes/task");
+const cors = require("cors");
 
-const contextMongo = new ContextStrategy(new MongoDB());
-contextMongo.create();
-contextMongo.read();
-contextMongo.update();
-contextMongo.delete();
+app.listen(3002, () => {
+  console.log("app running");
+});
 
-const contextPostgres = new ContextStrategy(new Postgres());
-contextPostgres.create();
-contextPostgres.read();
-contextPostgres.update();
-contextPostgres.delete();
+app.use(cors({ origin: "http://localhost:3000" }));
+// app.use(cors());
+app.use("/task", tasksRoute);

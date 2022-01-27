@@ -4,9 +4,17 @@
   "description": "docker run --name postgres -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=senha -e POSTGRES_DB=heroes -p 5432:5432 -d postgres",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "run": "nodemon  src/index.js",
+    "test": "mocha src/tests/crudTests.test.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "mocha": "^9.1.3",
+    "mongoose": "^6.1.5",
+    "nodemon": "^2.0.15"
+  }
 }
