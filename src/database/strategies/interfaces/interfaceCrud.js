@@ -11,19 +11,26 @@ class ICrud {
   isConnected() {
     throw new NotImplementedException();
   }
-  create(item) {
+  create(userId, item) {
     throw new NotImplementedException();
   }
 
-  read(query) {
+  read(userId, limit) {
     throw new NotImplementedException();
   }
 
-  update(id, tem) {
+  update(taskId, newTask) {
     throw new NotImplementedException();
   }
 
-  delete(id) {
+  delete(TaskId) {
+    throw new NotImplementedException();
+  }
+
+  createToUser(userData) {
+    throw new NotImplementedException();
+  }
+  findUser(userData) {
     throw new NotImplementedException();
   }
 }

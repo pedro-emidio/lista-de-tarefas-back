@@ -12,17 +12,23 @@ class ContextStrategy extends ICrud {
   isConnected() {
     return this._database.isConnected();
   }
-  create(item) {
-    return this._database.create(item);
+  create(userId, item) {
+    return this._database.create(userId, item);
   }
-  read(limit) {
-    return this._database.read(limit);
+  read(userId, limit) {
+    return this._database.read(userId, limit);
   }
-  update(id, item) {
-    return this._database.update(id, item);
+  update(taskId, newTask) {
+    return this._database.update(taskId, newTask);
   }
-  delete(id) {
-    return this._database.delete(id);
+  delete(TaskId) {
+    return this._database.delete(TaskId);
+  }
+  createToUser(userData) {
+    return this._database.createToUser(userData);
+  }
+  findUser(userData) {
+    return this._database.findUser(userData);
   }
 }
 

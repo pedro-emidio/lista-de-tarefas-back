@@ -6,21 +6,23 @@ const {
   deleteTask,
 } = require("../controllers/taskActions");
 
+const { autentica } = require("../controllers/taskActions");
+
 const TaskRouter = Router();
 
-TaskRouter.post("/create", createTask, (request, response) => {
+TaskRouter.post("/create", autentica, createTask, (request, response) => {
   response.json({ httpStatus: 200 });
 });
 
-TaskRouter.get("/list", listTasks, (request, response) => {
-  response.json({ tasks: request.tasks });
+TaskRouter.get("/list", autentica, listTasks, (request, response) => {
+  // response.json({ httpStatus: 200 });
 });
 
-TaskRouter.delete("/delete", deleteTask, (request, response) => {
+TaskRouter.delete("/delete", autentica, deleteTask, (request, response) => {
   response.json({ httpStatus: 200 });
 });
 
-TaskRouter.put("/update", updateTask, (request, response) => {
+TaskRouter.put("/update", autentica, updateTask, (request, response) => {
   response.json({ httpStatus: 200 });
 });
 
