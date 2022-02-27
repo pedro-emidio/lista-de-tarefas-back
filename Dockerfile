@@ -1,9 +1,13 @@
-FROM node:14.17.5
+FROM node:14.19 
 
 WORKDIR /app
-COPY package.json /app
+
+COPY package*.json ./
+
 RUN npm install
-RUN npm ci --only=production && npm cache clean --force
-COPY . /app
-CMD node index.js
-EXPOSE 3002
+
+COPY . ./
+
+RUN npm build
+
+CMD [ "node", "src/index.js" ]
